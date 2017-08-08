@@ -1,0 +1,12 @@
+{
+  "name": "fp.resultados",
+  "description": "Aplicación web para la calificación de Resultados de Aprendizaje en la FP",
+  "author": "José Antonio Muñoz Jiménez",
+  "version": "0.0.1",
+  "devDependencies": {
+    "jshint": "^2.6.0"
+  },
+  "scripts": {
+    "test": "./node_modules/jshint/bin/jshint hello.js"
+  }
+}
