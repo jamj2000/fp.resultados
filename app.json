@@ -1,6 +1,7 @@
 {
   "name": "fp.resultados",
   "scripts": {
+    "start": "npm start"
   },
   "env": {
   },
