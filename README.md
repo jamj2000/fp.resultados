@@ -13,6 +13,7 @@ Los componentes utilizados han sido:
 - Node
 - Express
 - MongoDB y Mongoose
+- Passport
 - Plantillas Pug (anteriormente Jade)
 
 
