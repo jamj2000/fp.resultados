@@ -8,3 +8,9 @@ heroku run bash
 heroku run bash -a fp-resultados
 
 ```
+
+## Logs
+
+```
+heroku logs
+```
