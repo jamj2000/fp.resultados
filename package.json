@@ -3,6 +3,11 @@
   "description": "Aplicación web para la calificación de Resultados de Aprendizaje en la FP",
   "author": "José Antonio Muñoz Jiménez",
   "version": "0.0.1",
+  "engines": {
+    "node": "6.11.2",
+    "npm" : "3.10.10"
+  }
+
   "devDependencies": {
     "jshint": "^2.6.0"
   },
