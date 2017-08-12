@@ -1,6 +1,6 @@
 // profesores.js - modulo de rutas para profesores
 
-var express = require('express')
+var express    = require('express')
 var profesores = express.Router()
 
 // Home page route

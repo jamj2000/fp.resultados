@@ -1,6 +1,6 @@
 // informes.js - modulo de rutas para informes
 
-var express = require('express')
+var express  = require('express')
 var informes = express.Router()
 
 // Home page route

@@ -1,6 +1,6 @@
 // resultados.js - modulo de rutas para resultados
 
-var express = require('express')
+var express    = require('express')
 var resultados = express.Router()
 
 // Home page route

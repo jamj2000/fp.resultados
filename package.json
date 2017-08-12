@@ -19,6 +19,6 @@
   "main": "hello.js",
   "scripts": {
     "start": "node app.js",
-    "test": "./node_modules/jshint/bin/jshint hello.js"
+    "test": "./node_modules/jshint/bin/jshint app.js"
   }
 }
