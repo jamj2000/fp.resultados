@@ -39,7 +39,7 @@ app.route('/ejemplo')
 
 
 // Enrutadores
-const principal  = require('./routes/principal.js')
+const principal  = require('./routes/principal.js');
 const alumnos    = require('./routes/alumnos.js');
 const modulos    = require('./routes/modulos.js');
 const profesores = require('./routes/profesores.js');
