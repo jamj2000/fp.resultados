@@ -17,7 +17,7 @@ principal.use(function(req, res, next) {
 
 // Home page route
 principal.get('/', function (req, res) {
-  res.send('Página principal')
+  res.render('inicio/index', { title: 'FP Resultados (nodejs)' });
 })
 
 // About page route
