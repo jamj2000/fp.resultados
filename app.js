@@ -16,13 +16,15 @@ app.set('view engine', 'jade');
 
 
 
-// Datos de producción (Heroku) y desarrollo (local)
-const puerto  = process.env.PORT || 3000;
-const mongodb = process.env.MONGODB_URI || 'mongodb://localhost/fp';
+// Datos de producción (HEROKU) y desarrollo (local)
+//const puerto  = process.env.PORT || 3000;
+//const mongodb = process.env.MONGODB_URI || 'mongodb://localhost/fp';
 
 
 
 
+// Configuración: producción (Openshift) y desarrollo (local)
+const config     = require('./config');
 
 
 // Modelos
@@ -34,17 +36,18 @@ const Modulo   = require('./app/models/modulo');
 
 
 
-var db = mongoose.connect(mongodb).connection;
+var db = mongoose.connect(config.mongodb+config.db_name).connection;
 db.on('error', console.error.bind(console, 'Error en la conexión a la BD:'));
 
 
 
 db.once('open', function() {
-  console.log (`Conexión a BD ${mongodb} realizada correctamente`);
-/*
+  console.log (`Conexión a BD ${config.mongodb}${config.db_name} realizada correctamente`);
+
+
   var a = new Alumno()
-  a.nombre = 'Lena'
-  a.edad = 22
+  a.nombre = 'Malena'
+  a.edad = 24
   a.save(function(err) {
      if (err) 
      	return res.send(err);
@@ -62,7 +65,7 @@ db.once('open', function() {
   });
 
   
-*/
+
 
 });
 
@@ -89,8 +92,8 @@ app.use('/informes',   informes);
 
 
 // Inicio de servidor
-app.listen( puerto, function () {
-	console.log (`Iniciado servidor en puerto ${puerto}`); 
+app.listen( config.puerto, config.ip, function () {
+	console.log (`Iniciado servidor en puerto ${config.ip}:${config.puerto}`); 
 });
 
 
