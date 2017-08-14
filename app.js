@@ -44,7 +44,7 @@ db.on('error', console.error.bind(console, 'Error en la conexión a la BD:'));
 db.once('open', function() {
   console.log (`Conexión a BD ${config.mongodb}${config.db_name} realizada correctamente`);
 
-
+/*
   var a = new Alumno()
   a.nombre = 'Malena'
   a.edad = 24
@@ -64,8 +64,7 @@ db.once('open', function() {
      	console.log(`Profesor creado!: ${p.nombre}, ${p.edad}`);
   });
 
-  
-
+*/
 
 });
 
