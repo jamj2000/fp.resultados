@@ -28,4 +28,4 @@ Los componentes utilizados han sido:
 
 ## Nota
 
-En un primer momento intenté hacer el desplige en https://fp-resultados.herokuapp.com/ , pero la base de datos MongoDB que proporciona, aunque gratis, pide dar datos de tarjeta de crédito. Y como que no me gusta mucho ir dando por ahí los datos de mi tarjeta de crédito.
+En un primer momento intenté hacer el desplige en https://fp-resultados.herokuapp.com/ , pero la base de datos MongoDB que proporciona, aunque gratis, pide dar datos de tarjeta de crédito. Y como que no me gusta mucho ir dando por ahí los datos de mi tarjeta de crédito ...
