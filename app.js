@@ -52,6 +52,15 @@ mongoose.connection.once('open', function() {
   	logger.error(`Error en la conexión a la BD: ${err}`);
   });
 
+  mongoose.connection.on('connected', function() {
+    logger.info('MongoDB conectada');
+  });
+
+  mongoose.connection.on('disconnected', function() {
+    logger.warn('MongoDB desconectada');
+  });
+
+
 /*
   var a = new Alumno()
   a.nombre = 'Malena'
@@ -75,8 +84,6 @@ mongoose.connection.once('open', function() {
 */
 
 });
-
-
 
 
 

@@ -22,7 +22,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "stop": "pkill --signal SIGINT fp-resultados",
+    "stop": "pkill --signal SIGINT fp.resultados",
     "test": "./node_modules/jshint/bin/jshint app.js"
   }
 }
