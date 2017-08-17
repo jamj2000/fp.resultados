@@ -1,19 +1,20 @@
-const express    = require('express');
-const mongoose   = require('mongoose');
-const bodyParser = require('body-parser');
-
+var express    = require('express');
+var mongoose   = require('mongoose');
+var bodyParser = require('body-parser');
+var logger     = require('logger').createLogger('output.log');
 
 const app        = express();
-
-app.use( bodyParser.json() );       
-app.use( bodyParser.urlencoded ({ extended: true })); 
-
-app.use(express.static('public'));
-//app.use(express.static(__dirname + '/public'));
+process.title    = 'fp-resultados';
 
 app.set('views', __dirname + '/app/views');
 app.set('view engine', 'jade');
 
+app.use( bodyParser.json() );       
+app.use( bodyParser.urlencoded ({ extended: true })); 
+app.use( express.static('public') );
+//app.use(express.static(__dirname + '/public'));
+
+logger.setLevel('debug');
 
 
 // Datos de producción (HEROKU) y desarrollo (local)
@@ -24,7 +25,7 @@ app.set('view engine', 'jade');
 
 
 // Configuración: producción (Openshift) y desarrollo (local)
-const config     = require('./config');
+const config   = require('./config');
 
 
 // Modelos
@@ -36,13 +37,20 @@ const Modulo   = require('./app/models/modulo');
 
 
 
-var db = mongoose.connect(config.mongodb+config.db_name).connection;
-db.on('error', console.error.bind(console, 'Error en la conexión a la BD:'));
+mongoose.connect(config.mongodb+config.db_name);
+
+//var db = mongoose.connection;
 
 
 
-db.once('open', function() {
-  console.log (`Conexión a BD ${config.mongodb}${config.db_name} realizada correctamente`);
+
+
+mongoose.connection.once('open', function() {
+  logger.info (`Conexión a BD ${config.mongodb}${config.db_name} realizada correctamente`);
+
+  mongoose.connection.on('error', function (err) {
+  	logger.error(`Error en la conexión a la BD: ${err}`);
+  });
 
 /*
   var a = new Alumno()
@@ -81,13 +89,15 @@ const profesores = require('./routes/profesores.js');
 const resultados = require('./routes/resultados.js');
 const informes   = require('./routes/informes.js');
 
+
+// Rutas
+//---------------------------------------------------------------
 app.use('/',           principal);
 app.use('/alumnos',    alumnos);
 app.use('/modulos',    modulos);
 app.use('/profesores', profesores);
 app.use('/resultados', resultados);
 app.use('/informes',   informes);
-
 
 
 // Inicio de servidor
