@@ -102,7 +102,7 @@ app.use('/informes',   informes);
 
 // Inicio de servidor
 app.listen( config.puerto, config.ip, function () {
-	console.log (`Iniciado servidor en puerto ${config.ip}:${config.puerto}`); 
+	logger.info (`Iniciado servidor en puerto ${config.ip}:${config.puerto}`); 
 });
 
 
