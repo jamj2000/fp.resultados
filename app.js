@@ -41,7 +41,7 @@ mongoose.connect(config.mongodb+config.db_name);
 
 //var db = mongoose.connection;
 
-
+logger.info (config.mongodb+config.db_name);
 
 
 
