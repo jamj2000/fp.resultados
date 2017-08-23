@@ -2,17 +2,20 @@ var express    = require('express');
 var mongoose   = require('mongoose');
 var bodyParser = require('body-parser');
 var logger     = require('logger').createLogger('output.log');
+var pug        = require('pug');
 
 const app        = express();
 process.title    = 'fp-resultados';
 
 app.set('views', __dirname + '/app/views');
-app.set('view engine', 'jade');
+app.set('view engine', 'pug');
 
 app.use( bodyParser.json() );       
 app.use( bodyParser.urlencoded ({ extended: true })); 
-app.use( express.static('public') );
-//app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
+//app.use(express.favicon(__dirname + '/public/img/favicon.png'));
+//app.use(express.static('public') );
+
 
 logger.setLevel('debug');
 

@@ -2,6 +2,7 @@
 
 var express   = require('express')
 var principal = express.Router()
+var path      = require('path')
 
 // route middleware que se ejecuta antes de cada petición
 principal.use(function(req, res, next) {
@@ -17,7 +18,7 @@ principal.use(function(req, res, next) {
 
 // Home page route
 principal.get('/', function (req, res) {
-  res.render('inicio/index', { title: 'FP Resultados (nodejs)' });
+  res.render('index', { title: 'FP Resultados (nodejs)' });
 })
 
 // About page route

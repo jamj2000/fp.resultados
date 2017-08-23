@@ -1,0 +1,11 @@
+doctype html
+html(lang="es")
+  include head
+  body
+    include nav
+    .container
+      .messages.mt-5
+        block messages
+      .content.mt-5
+        block content
+    include footer

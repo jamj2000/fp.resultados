@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+
+  if datos
+    .card.mt-5
+      h4.card-header Profesores
+      .card-body
+        .list-group
+          - var profesores = JSON.parse(datos)
+          for prof in profesores
+            a.list-group-item.list-group-item-action(href='/profesores/' + prof.id) #{prof.nombre} #{prof.apellido1} #{prof.apellido2}  

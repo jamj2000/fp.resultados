@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+
+  if datos1 && datos2
+    -var profesor = JSON.parse(datos1)
+    -var modulos  = JSON.parse(datos2)
+    .card
+      h4.card-header #{profesor.nombre} #{profesor.apellido1} #{profesor.apellido2}
+      .card-body
+        .d-flex.justify-content-between
+          a.btn.btn-outline-primary(href='/profesores/' + profesor.id + '/edit') Editar  
+          a.btn.btn-outline-danger(href='/profesores/' + profesor.id + '/delete') Borrar
+        br
+        dl.row
+          dt.col-sm-5 Correo eléctronico
+          dd.col-sm-7 #{profesor.email}
+          dt.col-sm-5 Tutoría
+          dd.col-sm-7 #{profesor.tutoria}
+
+        h4.mt-4 Modulos impartidos
+        for mod in modulos
+          a(href='/modulos/'+mod.id) #{mod.curso} - #{mod.nombre} 
+          br

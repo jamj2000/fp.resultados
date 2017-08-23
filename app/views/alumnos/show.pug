@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+
+  if datos1 && datos3
+    - var alumno  = JSON.parse(datos1)
+    - var modulos = JSON.parse(datos3)
+    .card
+      h4.card-header #{alumno.nombre} #{alumno.apellido1} #{alumno.apellido2} 
+      .card-body
+        .d-flex.justify-content-between
+          a.btn.btn-outline-primary(href='/alumnos/' + alumno.id + '/edit') Editar  
+          a.btn.btn-outline-danger(href='/alumnos/' + alumno.id + '/delete') Borrar
+        br
+        dl.row
+          dt.col-sm-5 Curso
+          dd.col-sm-7 #{alumno.curso}
+          dt.col-sm-5 Correo eléctronico
+          dd.col-sm-7 #{alumno.email}
+          dt.col-sm-5 Fecha de nacimiento
+          dd.col-sm-7 #{alumno.fecha_nac}
+
+        h4.mt-4 Modulos con matrícula
+        for mod in modulos
+          a(href='/modulos/'+mod.id) #{mod.curso} - #{mod.nombre} 
+          br

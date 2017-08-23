@@ -1,0 +1,72 @@
+extends ../layout
+
+block content
+
+  if datos1 && datos2
+    -var modulo     = JSON.parse(datos1)
+    -var profesores = JSON.parse(datos2)
+    .card.info
+      h4.card-header  #{modulo.siglas} - #{modulo.nombre} 
+      .card-body
+        form(method='POST' action='/modulos/'+ modulo.id)
+          div.row
+            div.form-group.col-md-4
+              label(for='curso') Curso
+              input#curso.form-control(type='text', value=modulo.curso, name='curso', disabled='disabled')
+            div.form-group.col-md-4
+              label(for='nombre') Nombre
+              input#nombre.form-control(type='text', value=modulo.nombre, name='nombre', disabled='disabled')
+            div.form-group.col-md-4
+              label(for='ciclo') Ciclo
+              input#ciclo.form-control(type='text', value=modulo.ciclo, name='ciclo', disabled='disabled')
+
+          div.row
+            div.form-group.col-md-4
+              label(for='horas_totales') Horas totales
+              input#horas_totales.form-control(type='text', value=modulo.horas_totales, name='horas_totales', disabled='disabled')
+            div.form-group.col-md-4
+              label(for='horas_semanales') Horas semanales
+              input#horas_semanales.form-control(type='text', value=modulo.horas_semanales, name='horas_semanales', disabled='disabled')
+            div.form-group.col-md-4
+              label(for='num_resultados') Número de resultados
+              input#num_resultados.form-control(type='text', value=modulo.num_resultados, name='num_resultados', disabled='disabled')
+   
+          label Resultados de aprendizaje
+          div.row
+            div.col-md-1
+              label(for='r1_peso') R1
+              input#r1_peso.form-control(type='text', value=modulo.r1_peso, name='r1_peso')
+            div.col-md-1
+              label(for='r2_peso') R2
+              input#r1_peso.form-control(type='text', value=modulo.r2_peso, name='r2_peso')
+            div.col-md-1
+              label(for='r3_peso') R3
+              input#r1_peso.form-control(type='text', value=modulo.r3_peso, name='r3_peso')
+            div.col-md-1
+              label(for='r4_peso') R4
+              input#r1_peso.form-control(type='text', value=modulo.r4_peso, name='r4_peso')
+            div.col-md-1
+              label(for='r5_peso') R5
+              input#r1_peso.form-control(type='text', value=modulo.r5_peso, name='r5_peso')
+            div.col-md-1
+              label(for='r6_peso') R6
+              input#r1_peso.form-control(type='text', value=modulo.r6_peso, name='r6_peso')
+            div.col-md-1
+              label(for='r7_peso') R7
+              input#r1_peso.form-control(type='text', value=modulo.r7_peso, name='r7_peso')
+            div.col-md-1
+              label(for='r8_peso') R8
+              input#r1_peso.form-control(type='text', value=modulo.r8_peso, name='r8_peso')
+            div.col-md-1
+              label(for='r9_peso') R9
+              input#r1_peso.form-control(type='text', value=modulo.r9_peso, name='r9_peso')
+
+          h4.mt-4 Profesor titular
+          for prof in profesores
+            div.row
+              if modulo.profesor_id == prof.id
+                input.form-control.col-1(type='radio', value=prof.id,  name='profesor', id='profesor'+prof.id 'checked')
+                label.col-11(for='profesor'+prof.id) #{prof.nombre} #{prof.apellido1} #{prof.apellido2} 
+              else
+                input.form-control.col-1(type='radio', value=prof.id,  name='profesor', id='profesor'+prof.id)
+                label.col-11(for='profesor'+prof.id) #{prof.nombre} #{prof.apellido1} #{prof.apellido2} 

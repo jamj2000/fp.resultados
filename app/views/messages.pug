@@ -1,3 +1,5 @@
+block messages
+
 if info && info.length
   div(class='fade in alert alert-info')
     button(class='close' type='button' data-dismiss='alert') ×
@@ -25,3 +27,4 @@ if warning && warning.length
     ul
       for warn in warning
         li #{ warn }
+

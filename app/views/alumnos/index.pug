@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+
+  if datos
+    .card.mb-5
+      h4.card-header Alumnos
+      .card-body
+        .list-group
+          - var alumnos = JSON.parse(datos)
+            for alum in alumnos
+              a.list-group-item.list-group-item-action(href='/alumnos/' +alum.id) #{alum.nombre} #{alum.apellido1} #{alum.apellido2} 

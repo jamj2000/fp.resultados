@@ -17,6 +17,11 @@ Los componentes utilizados han sido:
 - Plantillas Pug (anteriormente Jade)
 
 
+## Importación a MongoDB de datos en archivo CSV
+
+mongoimport -d nombredb -c nombrecoleccion --type csv --file datos.csv --headerline
+
+mongoimport -d nombredb -c nombrecoleccion --type csv --file datos.csv --fields campo1,campo2,...
 
 
 

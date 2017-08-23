@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+
+  if datos
+    .card.mb-5
+      h4.card-header Modulos
+      .card-body
+        .list-group
+          - var modulos = JSON.parse(datos)
+          for mod in modulos
+            a.list-group-item.list-group-item-action(href='/modulos/'+mod.id) #{mod.nombre} 

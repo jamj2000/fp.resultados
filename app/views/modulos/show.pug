@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+
+  if datos1 && datos2
+    -var modulo = JSON.parse(datos1)
+    -var profesor = JSON.parse(datos2)
+    .card
+      h4.card-header  #{modulo.siglas} - #{modulo.nombre} 
+      .card-body
+        .d-flex.justify-content-between
+          a.btn.btn-outline-primary(href='/modulos/' + modulo.id + '/edit') Editar  
+          a.btn.btn-outline-danger(href='/modulos/' + modulo.id + '/delete') Borrar
+        br
+        dl.row
+          dt.col-sm-5 Curso
+          dd.col-sm-7 #{modulo.curso}
+          dt.col-sm-5 Ciclo
+          dd.col-sm-7 #{modulo.ciclo}
+          dt.col-sm-5 Horas totales
+          dd.col-sm-7 #{modulo.horas_totales}
+          dt.col-sm-5 Horas semanales
+          dd.col-sm-7 #{modulo.horas_semanales}
+          dt.col-sm-5 Número de resultados
+          dd.col-sm-7 #{modulo.num_resultados}
+        
+        h4.mt-4 Profesor titular
+        a(href='/profesores/' + profesor.id) #{profesor.nombre} #{profesor.apellido1} #{profesor.apellido2}
+
+        h4.mt-4 Alumnos matriculados
+
+
+
