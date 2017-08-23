@@ -7,7 +7,7 @@ var pug        = require('pug');
 const app        = express();
 process.title    = 'fp-resultados';
 
-app.set('views', __dirname + '/app/views');
+app.set('views', __dirname + '/views');
 app.set('view engine', 'pug');
 
 app.use( bodyParser.json() );       
@@ -29,13 +29,6 @@ logger.setLevel('debug');
 
 // Configuración: producción (Openshift) y desarrollo (local)
 const config   = require('./config');
-
-
-// Modelos
-// --------------------------------------------------------
-const Alumno   = require('./app/models/alumno');
-const Profesor = require('./app/models/profesor');
-const Modulo   = require('./app/models/modulo');
 
 
 
@@ -62,29 +55,6 @@ mongoose.connection.once('open', function() {
   mongoose.connection.on('disconnected', function() {
     logger.warn('MongoDB desconectada');
   });
-
-
-/*
-  var a = new Alumno()
-  a.nombre = 'Malena'
-  a.edad = 24
-  a.save(function(err) {
-     if (err) 
-     	return res.send(err);
-     else 
-        console.log(`Alumno creado!: ${a.nombre}, ${a.edad}`);
-  });
-
-  var p = new Profesor( { "nombre" : "Alberto",  "edad" : 35 })
-  
-  p.save(function(err) {
-     if (err) 
-     	return res.send(err);
-     else
-     	console.log(`Profesor creado!: ${p.nombre}, ${p.edad}`);
-  });
-
-*/
 
 });
 

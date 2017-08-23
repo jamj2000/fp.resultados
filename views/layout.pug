@@ -5,7 +5,8 @@ html(lang="es")
     include nav
     .container
       .messages.mt-5
-        block messages
+        include messages
       .content.mt-5
         block content
     include footer
+    include scripts

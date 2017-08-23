@@ -3,8 +3,8 @@ extends ../layout
 block content
 
   if datos1 && datos3
-    - var alumno  = JSON.parse(datos1)
-    - var modulos = JSON.parse(datos3)
+    - var alumno   = JSON.parse(datos1)
+    - var modulos  = JSON.parse(datos3)
     .card
       h4.card-header #{alumno.nombre} #{alumno.apellido1} #{alumno.apellido2} 
       .card-body
@@ -24,3 +24,4 @@ block content
         for mod in modulos
           a(href='/modulos/'+mod.id) #{mod.curso} - #{mod.nombre} 
           br
+

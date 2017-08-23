@@ -2,19 +2,19 @@ extends ../layout
 
 block content
 
-  if datos1 && datos2
-    -var modulo = JSON.parse(datos1)
-    -var profesor = JSON.parse(datos2)
+  if datos1 && profe && datos3
+    -var modulo   = JSON.parse(datos1)
+    -var profesor = JSON.parse(profe)
+    -var alumnos  = JSON.parse(datos3)
+    
     .card
-      h4.card-header  #{modulo.siglas} - #{modulo.nombre} 
+      h4.card-header  #{modulo.curso} - #{modulo.nombre} 
       .card-body
         .d-flex.justify-content-between
           a.btn.btn-outline-primary(href='/modulos/' + modulo.id + '/edit') Editar  
           a.btn.btn-outline-danger(href='/modulos/' + modulo.id + '/delete') Borrar
         br
         dl.row
-          dt.col-sm-5 Curso
-          dd.col-sm-7 #{modulo.curso}
           dt.col-sm-5 Ciclo
           dd.col-sm-7 #{modulo.ciclo}
           dt.col-sm-5 Horas totales
@@ -28,6 +28,8 @@ block content
         a(href='/profesores/' + profesor.id) #{profesor.nombre} #{profesor.apellido1} #{profesor.apellido2}
 
         h4.mt-4 Alumnos matriculados
-
+        for alu in alumnos
+          a(href='/alumnos/'+alu.id) #{alu.nombre} #{alu.apellido1} #{alu.apellido2}
+          br
 
 
