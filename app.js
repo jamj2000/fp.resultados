@@ -29,8 +29,10 @@ logger.setLevel('debug');
 // Configuración: producción (Openshift) y desarrollo (local)
 const config   = require('./config');
 
-
-mongoose.connect(`mongodb://${config.db_user}:${config.db_password}@${config.db_host}:${config.db_port}/${config.db_name}`);
+if (config.db_user) 
+  mongoose.connect(`mongodb://${config.db_user}:${config.db_password}@${config.db_host}:${config.db_port}/${config.db_name}`);
+else
+  mongoose.connect(`mongodb://${config.db_host}:${config.db_port}/${config.db_name}`);
 
 //var db = mongoose.connection;
 
