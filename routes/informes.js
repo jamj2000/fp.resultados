@@ -1,16 +1,10 @@
 // informes.js - modulo de rutas para informes
 
-var express  = require('express')
-var informes = express.Router()
+const express              = require('express')
+const informes             = express.Router()
+const informeController    = require('../controllers/informeController');
 
-// Home page route
-informes.get('/', function (req, res) {
-  res.send('Página de informes')
-})
 
-// About page route
-informes.get('/acerca', function (req, res) {
-  res.send('Acerca de los informes')
-})
+informes.get('/', informeController.index);
 
 module.exports = informes

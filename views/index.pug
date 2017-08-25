@@ -1,5 +1,30 @@
 extends layout
 
 block content
-
-  h1 Inicio de aplicación
+  .container.d-flex.justify-content-between
+    .row
+      a.btn.btn-small.btn-default.col-lg-4(href="/informacion")
+        b Información
+        br
+        img(src="/img/info.png", alt="informacion")
+      a.btn.btn-small.btn-default.col-lg-4(href="/resultados")
+        b Resultados
+        br
+        img(src="/img/resultados.png", alt="resultados")
+      a.btn.btn-small.btn-default.col-lg-4(href="/informes")
+        b Informes
+        br
+        img(src="/img/informes.png", alt="informes")
+    .row
+      a.btn.btn-small.btn-default.col-lg-4(href="/modulos")
+        b Módulos
+        br
+        img(src="/img/modulos.png", alt="modulos")
+      a.btn.btn-small.btn-default.col-lg-4(href="/profesores")
+        b Profesores
+        br
+        img(src="/img/profesores.png", alt="profesores")
+      a.btn.btn-small.btn-default.col-lg-4(href="/alumnos")
+        b Alumnos
+        br
+        img(src="/img/alumnos.png", alt="alumnos")

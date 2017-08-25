@@ -1,12 +1,12 @@
 // moduloController.js - modulo controlador para modulos
 
-const Profesor       = require('../models/alumno');
+const Profesor       = require('../models/profesor');
 const Alumno         = require('../models/alumno');
 const Modulo         = require('../models/modulo');
 const Modulo_Alumno  = require('../models/modulo_alumno');
 
 
-exports.list = function (req, res) {
+exports.index = function (req, res) {
     
       Modulo.find(function(err, modulos) {
         if (err) res.send(err);
@@ -22,14 +22,14 @@ exports.show = function(req, res) {
     
       Modulo.findOne({ id: req.params.i} , function(err, datos1) {
           if (err) res.send(err);
-          
-          var profe;
+         
+          let profe;
     
           Profesor.findOne({ id: datos1.profesor_id }, function(err, datos2) {  
             profe = datos2;
           });
           
-          Modulo_Alumno.find({ modulo_id: datos1.id }, function(err, datos2) {  
+          Modulo_Alumno.find({ modulo_id: datos1.id }, function(error, datos2) {  
        
                 var alus = [];
                 for (let i in datos2) 

@@ -1,15 +1,14 @@
+// profesorController.js - modulo controlador para profesores
+
 const Profesor = require('../models/profesor');
 const Modulo   = require('../models/modulo');
 
-
-
     
-exports.list = function(req, res) {
+exports.index = function(req, res) {
   Profesor.find(function(err, data) {
-    if (err) 
-      res.render('profesores/index', { error: JSON.stringify(err) });
-    else 
-      res.render('profesores/index', { datos: JSON.stringify(data) });
+    if (err) res.send(err);
+    
+    res.render('profesores/index', { datos: JSON.stringify(data) });
   });
 }
 

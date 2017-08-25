@@ -6,7 +6,7 @@ const Modulo_Alumno  = require('../models/modulo_alumno');
 
 
 
-exports.list = function (req, res) {
+exports.index = function (req, res) {
 
   Alumno.find(function(err, data) {
     if (err) res.send(err);

@@ -7,7 +7,7 @@ const alumnoController = require('../controllers/alumnoController');
 
 
 // Home page route
-alumnos.get('/',   alumnoController.list);
+alumnos.get('/',   alumnoController.index);
 alumnos.get('/:i', alumnoController.show);
 
 

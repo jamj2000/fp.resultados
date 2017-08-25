@@ -2,7 +2,9 @@ var express    = require('express');
 var mongoose   = require('mongoose');
 var bodyParser = require('body-parser');
 var logger     = require('logger').createLogger('output.log');
+var morgan     = require('morgan');
 var pug        = require('pug');
+
 
 const app        = express();
 process.title    = 'fp-resultados';
@@ -13,9 +15,8 @@ app.set('view engine', 'pug');
 app.use( bodyParser.json() );       
 app.use( bodyParser.urlencoded ({ extended: true })); 
 app.use(express.static(__dirname + '/public'));
-//app.use(express.favicon(__dirname + '/public/img/favicon.png'));
-//app.use(express.static('public') );
 
+app.use(morgan('dev'));
 
 logger.setLevel('debug');
 
@@ -25,12 +26,8 @@ logger.setLevel('debug');
 //const mongodb = process.env.MONGODB_URI || 'mongodb://localhost/fp';
 
 
-
-
 // Configuración: producción (Openshift) y desarrollo (local)
 const config   = require('./config');
-
-
 
 
 mongoose.connect(config.mongodb+config.db_name);
@@ -62,7 +59,7 @@ mongoose.connection.once('open', function() {
 
 // Enrutadores
 // --------------------------------------------------------------
-const principal  = require('./routes/principal.js');
+//const principal  = require('./routes/principal.js'); 
 const alumnos    = require('./routes/alumnos.js');
 const modulos    = require('./routes/modulos.js');
 const profesores = require('./routes/profesores.js');
@@ -72,12 +69,21 @@ const informes   = require('./routes/informes.js');
 
 // Rutas
 //---------------------------------------------------------------
-app.use('/',           principal);
+//app.use('/',           principal);      
 app.use('/alumnos',    alumnos);
 app.use('/modulos',    modulos);
 app.use('/profesores', profesores);
 app.use('/resultados', resultados);
 app.use('/informes',   informes);
+
+app.get('/', function (req, res){
+  res.render ('index');
+});
+
+app.get('/informacion', function (req, res){
+  res.render ('informacion/index');
+});
+
 
 
 // Inicio de servidor

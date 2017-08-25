@@ -1,12 +1,12 @@
 doctype html
 html(lang="es")
   include head
-  body
+  body(background="/img/fondo.jpg")
     include nav
     .container
-      .messages.mt-5
+      .messages.pt-5
         include messages
-      .content.mt-5
+      .content.pt-5.pb-5
         block content
     include footer
     include scripts

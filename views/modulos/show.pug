@@ -7,8 +7,9 @@ block content
     -var profesor = JSON.parse(profe)
     -var alumnos  = JSON.parse(datos3)
     
-    .card
-      h4.card-header  #{modulo.curso} - #{modulo.nombre} 
+    //- img(src="/img/modulos48.png")
+    .card      
+      h4.card-header #{modulo.curso} - #{modulo.nombre} 
       .card-body
         .d-flex.justify-content-between
           a.btn.btn-outline-primary(href='/modulos/' + modulo.id + '/edit') Editar  
@@ -25,7 +26,8 @@ block content
           dd.col-sm-7 #{modulo.num_resultados}
         
         h4.mt-4 Profesor titular
-        a(href='/profesores/' + profesor.id) #{profesor.nombre} #{profesor.apellido1} #{profesor.apellido2}
+        if profesor
+          a(href='/profesores/' + profesor.id) #{profesor.nombre} #{profesor.apellido1} #{profesor.apellido2}
 
         h4.mt-4 Alumnos matriculados
         for alu in alumnos

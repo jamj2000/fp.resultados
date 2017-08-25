@@ -3,10 +3,39 @@ extends ../layout
 block content
 
   if datos
+
+    script.
+      $(document).ready(function() {
+          // ocultar todos los cursos
+          $("#cursos a").hide();
+          $(".1fpgma").show();
+
+          // mostrar el curso del botón pulsado 
+          $(".btn-group button").click(function(evt) {
+              // evt.preventDefault();
+              $("#cursos a").hide();
+              var id = $(this).attr('id');
+
+              $("." + id).show();
+          });
+      });
+
+    .btn-group(role="group", aria-label="Cursos")
+      button#1fpgma.btn.btn-secondary(type="button") 1GM A
+      button#1fpgmb.btn.btn-secondary(type="button") 1GM B
+      button#2fpgm.btn.btn-secondary(type="button") 2GM
+      button#1fpgs.btn.btn-secondary(type="button") 1GS
+      button#2fpgs.btn.btn-secondary(type="button") 2GS
+      button#otros.btn.btn-secondary(type="button") Otros
+      button#todos.btn.btn-secondary(type="button") Todos  
+
     .card.mb-5
       h4.card-header Modulos
       .card-body
-        .list-group
+        .list-group#cursos
           - var modulos = JSON.parse(datos)
           for mod in modulos
-            a.list-group-item.list-group-item-action(href='/modulos/'+mod.id) #{mod.nombre} 
+            - var curso = mod.curso.toLowerCase().replace(" ", "");
+            a.todos.list-group-item.list-group-item-action(class=curso href='/modulos/'+mod.id) #{mod.nombre} 
+
+          

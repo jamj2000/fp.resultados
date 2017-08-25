@@ -4,7 +4,7 @@ const express              = require('express')
 const profesores           = express.Router()
 const profesorController   = require('../controllers/profesorController');
 
-profesores.get('/',   profesorController.list);
+profesores.get('/',   profesorController.index);
 profesores.get('/:i', profesorController.show);
 
 
