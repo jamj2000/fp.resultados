@@ -30,7 +30,7 @@ logger.setLevel('debug');
 const config   = require('./config');
 
 
-mongoose.connect(config.mongodb+config.db_name);
+mongoose.connect(`mongodb://${config.db_user}:${config.db_password}@${config.db_host}:${config.db_port}/${config.db_name}`);
 
 //var db = mongoose.connection;
 
@@ -59,7 +59,7 @@ mongoose.connection.once('open', function() {
 
 // Enrutadores
 // --------------------------------------------------------------
-//const principal  = require('./routes/principal.js'); 
+//const principal  = require('./routes/principal.js');  // Procesamiento previo
 const alumnos    = require('./routes/alumnos.js');
 const modulos    = require('./routes/modulos.js');
 const profesores = require('./routes/profesores.js');
@@ -69,7 +69,7 @@ const informes   = require('./routes/informes.js');
 
 // Rutas
 //---------------------------------------------------------------
-//app.use('/',           principal);      
+//app.use('/',           principal);       // Procesamiento previo
 app.use('/alumnos',    alumnos);
 app.use('/modulos',    modulos);
 app.use('/profesores', profesores);
@@ -87,8 +87,8 @@ app.get('/informacion', function (req, res){
 
 
 // Inicio de servidor
-app.listen( config.puerto, config.ip, function () {
-	logger.info (`Iniciado servidor en puerto ${config.ip}:${config.puerto}`); 
+app.listen( config.port, config.ip, function () {
+	logger.info (`Iniciado servidor en puerto ${config.ip}:${config.port}`); 
 });
 
 
