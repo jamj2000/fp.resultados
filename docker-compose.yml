@@ -1,0 +1,20 @@
+version: '2'
+services:
+
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_USER=root
+      - MONGO_DB=fp
+      - MONGO_PASSWORD
+
+  webapi:
+    build: .
+    restart: always
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_PASSWORD
+      - SECRET_KEY_BASE
+      - NODE_ENV=production
+- NODE_LOG_TO_STDOUT=true
