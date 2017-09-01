@@ -29,6 +29,7 @@ mongoimport -d nombredb -c nombrecoleccion --type csv --file datos.csv --fields 
 
 - https://github.com/madhums/node-express-mongoose
 - https://github.com/madhums/node-express-mongoose/wiki
+- https://medium.com/@patriciolpezjuri/empezando-con-docker-86f388316551
 
 
 ## Nota
