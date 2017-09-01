@@ -19,11 +19,21 @@ Los componentes utilizados han sido:
 
 ## Importación a MongoDB de datos en archivo CSV
 
+```bash
 mongoimport -d nombredb -c nombrecoleccion --type csv --file datos.csv --headerline
 
 mongoimport -d nombredb -c nombrecoleccion --type csv --file datos.csv --fields campo1,campo2,...
+```
 
+## Ejecución en Docker
 
+```bash
+git clone https://github.com/jamj2000/fp.resultados.git
+cd fp.resultados
+
+docker  build  -t  app-image  .
+docker  run    -p  5000:3000  --name app  app-image
+```
 
 ## Recursos
 
