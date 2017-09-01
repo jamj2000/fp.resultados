@@ -1,20 +1,23 @@
 version: '2'
 services:
 
-  mongo:
-    image: mongo:3.4
-    environment:
-      - MONGO_USER=root
-      - MONGO_DB=fp
-      - MONGO_PASSWORD
-
   webapi:
     build: .
     restart: always
+    ports:
+      - 80:3000
     depends_on:
       - mongo
     environment:
       - MONGO_PASSWORD
       - SECRET_KEY_BASE
       - NODE_ENV=production
-- NODE_LOG_TO_STDOUT=true
+      - NODE_LOG_TO_STDOUT=true
+
+
+  mongo:
+    image: mongo
+    environment:
+      - MONGO_USER=root
+      - MONGO_DB=fp
+      - MONGO_PASSWORD
