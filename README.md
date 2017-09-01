@@ -27,9 +27,9 @@ mongoimport -d nombredb -c nombrecoleccion --type csv --file datos.csv --fields 
 
 ## Ejecución en Docker
 
-```bash
-git clone https://github.com/jamj2000/fp.resultados.git
-cd fp.resultados
+```
+git  clone https://github.com/jamj2000/fp.resultados.git
+cd   fp.resultados
 
 docker  build  -t  app-image  .
 docker  run    -p  5000:3000  --name app  app-image
