@@ -12,7 +12,7 @@ exports.index = function (req, res) {
     if (err) res.send(err);
 
     //res.send(modulos);
-    res.render('modulos/index',  { datos: JSON.stringify(modulos) });
+    res.render('modulos/index',  { datos: JSON.stringify(modulos), usuario: req.user });
   });
 }
 
@@ -38,7 +38,8 @@ exports.show = function(req, res) {
           Alumno.find({ id: {$in : alus }}, function(err, datos3) { 
             res.render('modulos/show', {  datos1: JSON.stringify(datos1), 
                                           profe:  JSON.stringify(profe),
-                                          datos3: JSON.stringify(datos3)  });
+                                          datos3: JSON.stringify(datos3),
+                                          usuario: req.user  });
           });
       
       });
@@ -73,7 +74,8 @@ exports.edit = function(req, res) {
         res.render('modulos/edit', {  datos1: JSON.stringify(datos1), 
                                       profes: JSON.stringify(profes),
                                       alums:  JSON.stringify(alums),
-                                      datos3: JSON.stringify(datos3)  });
+                                      datos3: JSON.stringify(datos3),
+                                      usuario: req.user  });
       });
     
     });

@@ -10,7 +10,7 @@ exports.index = function (req, res) {
 
   Alumno.find(function(err, data) {
     if (err) res.send(err);
-    res.render('alumnos/index',  { datos: JSON.stringify(data) });
+    res.render('alumnos/index',  { datos: JSON.stringify(data), usuario: req.user });
   });
 
 }
@@ -30,7 +30,8 @@ exports.show = function(req, res) {
 
               Modulo.find({ id: {$in : mods }}, function(err, datos3) { 
                 res.render('alumnos/show', { datos1: JSON.stringify(datos1),
-                                             datos3: JSON.stringify(datos3)  });
+                                             datos3: JSON.stringify(datos3),
+                                             usuario: req.user  });
               });
           
       

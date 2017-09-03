@@ -29,7 +29,7 @@ principal.use(function(req, res, next) {
 
 // Home page route
 principal.get('/', function (req, res) {
-    res.render('index', { title: 'FP Resultados (nodejs)' });
+    res.render('index', { title: 'FP Resultados (nodejs)', usuario: req.user });
 })
 
 

@@ -1,0 +1,11 @@
+Id,Primer apellido,Segundo apellido,Nombre,Tutoría,Correo electrónico,Alias,Contraseña,admin
+1,Muñoz,Jiménez,José Antonio,,jamj2000@gmail.com,profe0,$2a$08$9KkDHpf65WkuW2uNzbl5ke0Ro78NdmPqqMDmDA0RgAVg9NMcSXo7m,s
+2,Pareja,Delgado,Ana María,2FPGS,profe1@gmail.com,profe1,$2a$08$qJ20orCJIlM.uerKhBYkR.xF6q0xRWjRvBlYFgqVDLKAX7tJWsZnG ,
+3,Merino,Fernández,Fernando,,profe2@gmail.com,profe2,$2a$08$4y.7zOMRhpBEA8R6x7xyDeeOCbVA0SX1L/3lFTMXiP9NEyv4zT8pi ,
+4,Pérez,Fuentes,Isaías,2FPGM,profe3@gmail.com,profe3,$2a$08$s.58haQbbEt9nRJGrlm7IuuD3yxlYRwERkDj91p6jcOLHJaCmXziW ,
+5,Antolino,García,Jacinto,1FPGS,profe4@gmail.com,profe4,$2a$08$VgJZe9vQgGHFHawXMh44Yud0/eRws0hfdEWZRLkE4a3FHHZ2ALhUK ,
+6,Lozano,Ortega,José María,,profe5@gmail.com,profe5,$2a$08$vuzQLVbOXMYGUBA8Pw2N6eBgwzqCyI7qBS5FzMmuKCYIOuEnl7C6u ,
+7,Molina,Polo,María Eugenia,1FPGM A,profe6@gmail.com,profe6,$2a$08$/ALxqk6JCpW8j42SeTjO5.f1g.aELzqxFeapstceLdJBh2endiT7O ,
+8,Siles,Rosado,María Inmaculada,,profe7@gmail.com,profe7,$2a$08$lgWT1t4.z.YM7FI53gUcLuRh1LKKFVNCLBtxO.HFFpXUtjpFPJVRm ,
+9,Conde,Silva,Marta Teresa,,profe8@gmail.com,profe8,$2a$08$EKKkDhG5SY6alf09CO3qbuQUPje47spX3choZYn.A64qHaTC6JHfe ,
+10,García,Viera,Miguel Ángel,1FPGM B,profe9@gmail.com,profe9,$2a$08$nCs61xC1IMXrjplw45T80.4/90CcMcAb66iEh2eMKiGwc5aUZWPBW ,

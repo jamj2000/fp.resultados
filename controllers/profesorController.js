@@ -9,7 +9,7 @@ exports.index = function(req, res) {
   Profesor.find(function(err, data) {
     if (err) res.send(err);
     
-    res.render('profesores/index', { datos: JSON.stringify(data) });
+    res.render('profesores/index', { datos: JSON.stringify(data), usuario: req.user });
   });
 
 }
@@ -22,7 +22,8 @@ exports.show = function(req, res) {
     
           Modulo.find({ profesor_id: datos1.id }, function(err, datos2) {  
             res.render('profesores/show', { datos1: JSON.stringify(datos1), 
-                                            datos2: JSON.stringify(datos2) });
+                                            datos2: JSON.stringify(datos2),
+                                            usuario: req.user  });
           });
       });
  
