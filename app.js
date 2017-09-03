@@ -124,7 +124,7 @@ passport.deserializeUser(function(id, done) {
       return console.log(err.message);
     }
     return done(null, user);
-  })
+  });
 });
 
 app.use(passport.initialize());
