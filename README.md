@@ -40,6 +40,7 @@ docker  run    -p  5000:3000  --name app  app-image
 - https://github.com/madhums/node-express-mongoose
 - https://github.com/madhums/node-express-mongoose/wiki
 - https://medium.com/@patriciolpezjuri/empezando-con-docker-86f388316551
+- https://medium.com/@sunnykay/docker-development-workflow-node-express-mongo-4bb3b1f7eb1e
 
 
 ## Nota
