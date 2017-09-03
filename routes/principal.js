@@ -9,15 +9,23 @@ principal.use(function(req, res, next) {
     // log cada petición a consola
     console.log(req.method, req.url);
 
-    // continuar 
-    next(); 
+    next();
+
+    // if (req.isAuthenticated()) {
+    //   next();  
+    // } else {
+    //   res.render('login');
+    // }
 });
 
 
 // Home page route
 principal.get('/', function (req, res) {
-  res.render('index', { title: 'FP Resultados (nodejs)' });
+    res.render('index', { title: 'FP Resultados (nodejs)' });
 })
+
+
+
 
 
 module.exports = principal

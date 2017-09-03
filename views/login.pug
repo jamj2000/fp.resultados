@@ -1,0 +1,24 @@
+doctype html
+html(lang="es")
+  include head
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js", integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4", crossorigin="anonymous")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js", integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1", crossorigin="anonymous")
+  link(href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous")
+  body(background="/img/fondo.jpg")
+    .container
+      .content.mt-5
+        .messages.pt-5
+          include messages
+        h1
+          span.fa.fa-lock
+          |  Login
+        if errMsg
+          p #{errMsg}
+        form.form-inline(action="/login", method="post")
+         .form-group
+            input.form-control(type="email", name="email", placeholder="email")
+            input.form-control(type="password", name="password", placeholder="password")
+            input.btn.btn-success.btn-default(type="submit")
+    //- include scripts
+
+ 

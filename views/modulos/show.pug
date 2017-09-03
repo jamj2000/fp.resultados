@@ -16,21 +16,38 @@ block content
           a.btn.btn-outline-danger(href='/modulos/' + modulo.id + '/delete') Borrar
         br
         dl.row
-          dt.col-sm-5 Ciclo
-          dd.col-sm-7 #{modulo.ciclo}
-          dt.col-sm-5 Horas totales
-          dd.col-sm-7 #{modulo.horas_totales}
-          dt.col-sm-5 Horas semanales
-          dd.col-sm-7 #{modulo.horas_semanales}
-          dt.col-sm-5 Número de resultados
-          dd.col-sm-7 #{modulo.num_resultados}
-        
+          dt.col-lg-3 Ciclo
+          dd.col-lg-9 #{modulo.ciclo}
+          dt.col-lg-3 Horas totales
+          dd.col-lg-9 #{modulo.horas_totales}
+          dt.col-lg-3 Horas semanales
+          dd.col-lg-9 #{modulo.horas_semanales}
+          dt.col-lg-3 Número de resultados
+          dd.col-lg-9 #{modulo.num_resultados}
+
+        h4 Resultados de aprendizaje (pesos)
+        div.row
+          - var i = 0
+          while ++i <= modulo.num_resultados
+            -var peso  = 'r'+i+'_peso'
+            -var valor = eval('modulo.r'+i+'_peso')
+            div.col-lg-1
+              label(for=peso) R#{i}
+              input.form-control(type='text', value=valor,  id=peso, name=peso, disabled='true')
+
+
+          //- dt.col-lg-3.col-xs-3 Pesos
+          //- - var i = 0
+          //- while ++i <= modulo.num_resultados            
+          //-   p.col-lg-1   R#{i}: #{eval('modulo.r'+i+'_peso')}
+
+
         h4.mt-4 Profesor titular
         if profesor
           a(href='/profesores/' + profesor.id) #{profesor.nombre} #{profesor.apellido1} #{profesor.apellido2}
 
         h4.mt-4 Alumnos matriculados
-        for alu in alumnos
+        each alu in alumnos
           a(href='/alumnos/'+alu.id) #{alu.nombre} #{alu.apellido1} #{alu.apellido2}
           br
 

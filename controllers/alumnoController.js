@@ -7,11 +7,14 @@ const Modulo_Alumno  = require('../models/modulo_alumno');
 
 
 exports.index = function (req, res) {
-
+if (req.isAuthenticated()) {
   Alumno.find(function(err, data) {
     if (err) res.send(err);
     res.render('alumnos/index',  { datos: JSON.stringify(data) });
   });
+} else {
+  res.redirect ('/login');
+}
 }
 
 
