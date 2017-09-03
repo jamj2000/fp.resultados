@@ -5,6 +5,14 @@ const modulos = express.Router();
 
 const moduloController = require('../controllers/moduloController');
 
+modulos.use(function(req, res, next) {
+    if (req.isAuthenticated())  
+      next(); // siguiente
+    else
+      res.redirect ('/login');
+});
+
+
 // Home page route
 modulos.get('/',        moduloController.index)
 modulos.get('/:i',      moduloController.show);

@@ -5,15 +5,13 @@ const Modulo   = require('../models/modulo');
 
     
 exports.index = function(req, res) {
-if (req.isAuthenticated()) {
+
   Profesor.find(function(err, data) {
     if (err) res.send(err);
     
     res.render('profesores/index', { datos: JSON.stringify(data) });
   });
-} else {
-  res.redirect ('/login');
-}
+
 }
 
     

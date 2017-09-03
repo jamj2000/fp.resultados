@@ -2,11 +2,15 @@
 
 const express = require('express')
 const alumnos = express.Router()
-
 const alumnoController = require('../controllers/alumnoController');
 
+alumnos.use(function(req, res, next) {
+    if (req.isAuthenticated())  
+      next(); // siguiente
+    else
+      res.redirect ('/login');
+});
 
-// Home page route
 alumnos.get('/',   alumnoController.index);
 alumnos.get('/:i', alumnoController.show);
 
