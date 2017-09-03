@@ -14,9 +14,17 @@ principal.use(function(req, res, next) {
     // if (req.isAuthenticated()) {
     //   next();  
     // } else {
-    //   res.render('login');
+    //   res.redirect('login');
     // }
 });
+
+// principal.use(function (req, res){
+//     if (req.isAuthenticated())  
+//       res.render(index); 
+//     else
+//       res.redirect ('/login');
+//   });
+
 
 
 // Home page route

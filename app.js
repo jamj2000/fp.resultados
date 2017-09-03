@@ -40,10 +40,12 @@ logger.setLevel('debug');
 // Configuración: producción (Openshift) y desarrollo (local)
 const config   = require('./config');
 
-if (config.db_user) 
-  mongoose.connect(`mongodb://${config.db_user}:${config.db_password}@${config.db_host}:${config.db_port}/${config.db_name}`);
-else
-  mongoose.connect(`mongodb://${config.db_host}:${config.db_port}/${config.db_name}`);
+mongoose.connect(config.db_uri);
+
+// if (config.db_user) 
+//   mongoose.connect(`mongodb://${config.db_user}:${config.db_password}@${config.db_host}:${config.db_port}/${config.db_name}`);
+// else
+//   mongoose.connect(`mongodb://${config.db_host}:${config.db_port}/${config.db_name}`);
 
 //var db = mongoose.connection;
 
@@ -151,7 +153,10 @@ app.use('/resultados', resultados);
 app.use('/informes',   informes);
 
 // app.get('/', function (req, res){
-//   res.render ('index');
+//   if (req.isAuthenticated())  
+//     res.render(index); 
+//   else
+//     res.redirect ('/login');
 // });
 
 app.get('/login', function (req, res){
