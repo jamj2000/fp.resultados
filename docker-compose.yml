@@ -6,8 +6,8 @@ services:
     build: .
     restart: always
     container_name: "web"
-#    volumes:
-#      - ./:/usr/src/app
+    volumes:
+      - .:/usr/src/app
     ports:
       - 3000:3000
     depends_on:
@@ -31,11 +31,11 @@ services:
       - MONGO_DB=fp
       - MONGO_PASSWORD
     volumes:
-      - data:/var/lib/mongodb
+      - /var/lib/mongodb:/data/db
 
 
-volumes:
-  data:
+#volumes:
+#  data:
 
 
 

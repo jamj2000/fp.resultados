@@ -68,7 +68,6 @@ exports.edit = function(req, res) {
 
       // { id: {$in : alums } }
 
-
       Alumno.find({ curso: { $regex: ciclo}  }, function(err, datos3) { 
             
         res.render('modulos/edit', {  datos1: JSON.stringify(datos1), 
@@ -77,9 +76,7 @@ exports.edit = function(req, res) {
                                       datos3: JSON.stringify(datos3),
                                       usuario: req.user  });
       });
-    
     });
-
   });
 }
     

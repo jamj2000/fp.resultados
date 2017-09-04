@@ -1,7 +1,9 @@
 extends layout
 
 block content
-
+  .container.d-flex.justify-content-between.mb-5
+    a.btn.btn-sm.align-middle.btn-primary.mt-1(href='/profesores/'+usuario.id) #{usuario.nombre} #{usuario.apellido1} #{usuario.apellido2} 
+    a.btn.btn-sm.align-middle.btn-outline-danger.fa.fa-sign-out.fa-lg.mt-1.ml-3.py-2(role='button', href='/logout', title="Salir")  
   .container.d-flex.justify-content-between
     .row
       a.btn.btn-small.btn-default.col-lg-4(href="/informacion")

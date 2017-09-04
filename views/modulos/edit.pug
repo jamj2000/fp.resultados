@@ -47,18 +47,18 @@ block content
           each prof in profesores
             div.row
               if modulo.profesor_id == prof.id
-                input.form-control.col-1(type='radio', value=prof.id,  name='profesor', id='profesor'+prof.id 'checked')
+                input.mt-1.form-control.col-1(type='radio', value=prof.id,  name='profesor', id='profesor'+prof.id, 'checked')
                 label.col-11(for='profesor'+prof.id) #{prof.nombre} #{prof.apellido1} #{prof.apellido2} 
               else
-                input.form-control.col-1(type='radio', value=prof.id,  name='profesor', id='profesor'+prof.id)
+                input.mt-1.form-control.col-1(type='radio', value=prof.id,  name='profesor', id='profesor'+prof.id)
                 label.col-11(for='profesor'+prof.id) #{prof.nombre} #{prof.apellido1} #{prof.apellido2} 
           
           h4.mt-4 Alumnos matriculados
           each alum in alumnos
             div.row 
-            if alum.checked
-              input.form-control.col-1(type='checkbox', value=alum.id,  name='alumno', id='alumno'+alum.id, checked)
-              label.col-10(for='alumno'+alum.id) #{alum.nombre} #{alum.apellido1} #{alum.apellido2}  #{alum.curso}  #{alum.checked}
-            else  
-              input.form-control.col-1(type='checkbox', value=alum.id,  name='alumno', id='alumno'+alum.id)
-              label.col-10(for='alumno'+alum.id) #{alum.nombre} #{alum.apellido1} #{alum.apellido2}  #{alum.curso} #{alum.checked}
+              if alum.checked
+                input.mt-1.px-1.form-control.col-1(type='checkbox', value=alum.id,  name='alumno', id='alumno'+alum.id, 'checked')
+                label.col-10(for='alumno'+alum.id) #{alum.nombre} #{alum.apellido1} #{alum.apellido2}  #{alum.curso} 
+              else  
+                input.mt-1.px-1.form-control.col-1(type='checkbox', value=alum.id,  name='alumno', id='alumno'+alum.id)
+                label.col-10(for='alumno'+alum.id) #{alum.nombre} #{alum.apellido1} #{alum.apellido2}  #{alum.curso}

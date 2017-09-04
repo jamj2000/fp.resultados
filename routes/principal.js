@@ -29,7 +29,10 @@ principal.use(function(req, res, next) {
 
 // Home page route
 principal.get('/', function (req, res) {
+  if (req.isAuthenticated())
     res.render('index', { title: 'FP Resultados (nodejs)', usuario: req.user });
+  else
+    res.redirect ('/login');
 })
 
 

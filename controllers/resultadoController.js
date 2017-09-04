@@ -2,5 +2,5 @@
 
 
 exports.index = function(req, res) {
-  res.render('resultados/index');
+  res.render('resultados/index', { usuario: req.user });
 }
